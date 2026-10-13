@@ -1,262 +1,100 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+ --fundo: #1c1f2e;
+ --card: #2a2e42;
+ --campo: #4a5280;
+ --texto: #ffffff;
+ --roxo: #7a1fff;
+ --rosa: #ff1fd0;
 }
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
+ font-family: "Segoe UI", Arial, sans-serif;
+ background: var(--fundo);
+ color: var(--texto);
+ min-height: 100vh;
 }
-
-
-.app {
-    width: 100%;
-    min-height: 100vh;
+a { color: var(--texto); }
+.btn {
+ display: block;
+ width: 100%;
+ padding: 14px;
+ border: none;
+ border-radius: 12px;
+ background: linear-gradient(90deg, var(--roxo), var(--rosa));
+ color: var(--texto);
+ font-size: 1rem;
+ font-weight: 700;
+ text-align: center;
+ text-decoration: none;
+ cursor: pointer;
 }
-
-
-header {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
+.btn:hover { filter: brightness(1.15); }
+/* ---------- LOGIN ---------- */
+.login { display: flex; min-height: 100vh; }
+.login-card {
+ flex: 1;
+ max-width: 520px;
+ margin: auto;
+ padding: 40px;
+ background: var(--card);
+ border-radius: 24px;
 }
-
-h1 {
-    color: #e77d21;
-    font-size: 45px;
-    text-align: center;
-    margin: 0;
+.login-card h1 { margin-bottom: 28px; }
+.ponto { color: var(--rosa); }
+.login-card label { display: block; margin: 16px 0 6px; font-size: .9rem; font-weight: 600; }
+.login-card input {
+ width: 100%;
+ padding: 14px;
+ border: 2px solid var(--roxo);
+ border-radius: 12px;
+ background: var(--campo);
+ color: var(--texto);
+ font-size: 1rem;
 }
-
-
-.fundo {
-    min-height: calc(100vh - 80px);
-    background-color: #5878c5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 55px;
+.login-card input:focus { outline: 2px solid var(--rosa); }
+.esqueci { display: block; margin: 12px 0 24px; text-align: right; font-size: .85rem; }
+.sem-conta { display: block; margin-top: 20px; text-align: center; font-size: .85rem; }
+.menu-links { display: flex; justify-content: center; gap: 16px; margin-top: 24px; font-size: .85rem; }
+.login-imagem {
+ flex: 1;
+ background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200") center / cover;
+ border-radius: 24px 0 0 24px;
 }
-
-
-.login-container {
-    width: 100%;
-    max-width: 460px;
-    min-height: 730px;
-    background-color: #f4f4f4;
-    border-radius: 0 15px 15px 0;
-    padding: 90px 38px 40px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+/* ---------- TOPO (Sobre e Exercício) ---------- */
+.topo {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 18px 32px;
+ background: var(--card);
 }
-
-
-h2 {
-    text-align: center;
-    font-size: 38px;
-    color: #111;
-    margin-bottom: 80px;
+.topo nav a { margin-left: 20px; text-decoration: none; opacity: .7; }
+.topo nav a:hover, .topo nav a.ativo { opacity: 1; color: var(--rosa); }
+.conteudo { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+.conteudo h1 { margin-bottom: 32px; }
+/* ---------- SOBRE ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.card { padding: 24px; background: var(--card); border-radius: 16px; border-top: 4px solid var(--roxo); }
+.card h2 { margin-bottom: 10px; color: var(--rosa); }
+.resumo { margin: 32px 0; line-height: 1.6; }
+.btn-link { max-width: 260px; }
+/* ---------- EXERCÍCIO ---------- */
+.calc { display: flex; flex-direction: column; gap: 14px; max-width: 420px; }
+.calc input {
+ padding: 14px;
+ border: 2px solid var(--roxo);
+ border-radius: 12px;
+ background: var(--campo);
+ color: var(--texto);
+ font-size: 1rem;
 }
-
-
-.campo {
-    margin-bottom: 50px;
-}
-
-.campo input {
-    width: 100%;
-    height: 55px;
-    border: none;
-    border-bottom: 3px solid #aaa;
-    background: transparent;
-    padding: 10px 8px;
-    font-size: 19px;
-    outline: none;
-}
-
-
-.campo input::placeholder {
-    color: #aaa;
-}
-
-
-.campo input:focus {
-    border-bottom-color: #5878c5;
-}
-
-
-button {
-    width: 100%;
-    height: 65px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-size: 21px;
-    background: linear-gradient(
-        100deg,
-        #3b9ddd,
-        #7445b9
-    );
-
-    margin-top: -5px;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-
-.forgot {
-    text-align: center;
-    margin-top: 70px;
-    font-size: 17px;
-    color: #777;
-}
-
-
-.signup {
-    text-align: center;
-    margin-top: 22px;
-    font-size: 17px;
-    color: #777;
-}
-
-
-a {
-    color: #17609a;
-    font-weight: bold;
-    text-decoration: none;
-    
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
-
-@media (max-width: 600px) {
-
-    body {
-        background-color: #5878c5;
-    }
-
-    .app {
-        min-height: 100vh;
-    }
-
-    header {
-        height: 75px;
-    }
-
-    h1 {
-        font-size: 38px;
-    }
-
-   
-    .fundo {
-        min-height: calc(100vh - 75px);
-        padding: 0;
-        display: block;
-    }
-
-    
-    .login-container {
-        width: 100%;
-        max-width: none;
-        min-height: calc(100vh - 75px);
-        border-radius: 25px 25px 0 0;
-        padding: 65px 30px 30px;
-        box-shadow: none;
-    }
-
-    
-    h2 {
-        font-size: 34px;
-        margin-bottom: 65px;
-    }
-
-  
-    .campo {
-        margin-bottom: 40px;
-    }
-
-    .campo input {
-        height: 60px;
-
-        font-size: 18px;
-    }
-
-    
-    button {
-        height: 60px;
-        font-size: 19px;
-        border-radius: 5px;
-    }
-
-    
-    .forgot {
-        margin-top: 55px;
-        font-size: 16px;
-    }
-
-    .signup {
-        margin-top: 20px;
-        font-size: 16px;
-    }
-}
-
-
-
-@media (max-width: 380px) {
-
-    header {
-        height: 65px;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    .fundo {
-        min-height: calc(100vh - 65px);
-    }
-
-    .login-container {
-        min-height: calc(100vh - 65px);
-
-        padding: 50px 25px 25px;
-    }
-
-    h2 {
-        font-size: 30px;
-
-        margin-bottom: 50px;
-    }
-
-    .campo {
-        margin-bottom: 30px;
-    }
-
-    .campo input {
-        height: 55px;
-    }
-
-    button {
-        height: 58px;
-    }
-
-    .forgot {
-        margin-top: 45px;
-    }
-}
-
-p{
-    margin-top: 50px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.resultados { display: grid; gap: 12px; margin-top: 32px; max-width: 420px; }
+.resultado { padding: 16px; background: var(--card); border-radius: 12px; font-weight: 600; }
+.resultado span { color: var(--rosa); }
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 768px) {
+ .login { flex-direction: column; }
+ .login-imagem { display: none; }
+ .login-card { margin: 24px; }
+ .topo { flex-direction: column; gap: 10px; }
 }
